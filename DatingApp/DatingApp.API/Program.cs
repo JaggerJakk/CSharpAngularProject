@@ -17,6 +17,8 @@ builder.Services.AddCors(options =>
         });
 });
 
+builder.Services.AddScoped<IAuthRepository, AuthRepository>(); // for each http request an insatnce AuthRepository is created
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
