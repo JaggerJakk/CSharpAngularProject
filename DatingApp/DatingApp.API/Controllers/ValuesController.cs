@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 namespace DatingApp.API.Controllers
 {
     [ApiController] // I think it ommits the /api/
-    [Route("[controller]")] // controller = Values
+    [Route("[controller]")] // [controller] = Values
     // Works on https://localhost:7234/values
     public class ValuesController : ControllerBase
     {
