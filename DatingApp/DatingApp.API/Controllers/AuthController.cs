@@ -9,7 +9,7 @@ using System.Text;
 
 namespace DatingApp.API.Controllers
 {
-    [Route("/[controller]")]
+    [Route("api/[controller]")]
     public class AuthController: Controller
     {
         public readonly IAuthRepository _repo;

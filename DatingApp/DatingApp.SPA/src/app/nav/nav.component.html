@@ -1,21 +1,33 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Dating App</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-      aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" href="#">Dating Site</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbar">
-      <ul class="nav navbar-nav">
-        <li><a href="#">Matches</a></li>
-        <li><a href="#">Lists</a></li>
-        <li><a href="#">Messages</a></li>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        <li><a class="nav-link" href="#">Matches</a></li>
+        <li><a class="nav-link" href="#">Lists</a></li>
+        <li><a class="nav-link" href="#">Messages</a></li>
       </ul>
-      <form #loginForm="ngForm" class="form-inline mt-2 mt-md-0" (ngSubmit)="login()">
-        <input type="text" class="form-control mr-sm-2" required name="username" [(ngModel)]="model.username">
-        <input type="password" class="form-control mr-sm-2" required name="password" [(ngModel)]="model.password">
-        <button class="btn btn-outline-success my-2 my-sm-0" [disabled]="!loginForm.valid" type="submit">Sign in</button>
+
+      <form *ngIf="!loggedIn()" #loginForm="ngForm" class="d-flex" (ngSubmit)="login()">
+        <input type="text" class="form-control me-2" required name="username" placeholder="Email" [(ngModel)]="model.username">
+        <input type="password" class="form-control me-2" required name="password" placeholder="Password"  [(ngModel)]="model.password">
+        <button class="btn btn-success col-2" [disabled]="!loginForm.valid" type="submit">Sign In</button>
       </form>
+
+      <ul *ngIf="loggedIn()" class="navbar-nav">
+        <li><a class="nav-link" (click) = "logout()">Logout</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" (click) = "logout()" href="#" data-bs-toggle="dropdown" aria-expanded="false">Welcome User</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#"><i class="fa fa-user"></i>Edit Profile</a></li>
+            <li><a class="dropdown-item" (click) = "logout()" href="#"><i class="fa fa-sign-out"></i>Logout</a></li>
+          </ul>
+        </li>  
+      </ul>
+
     </div>
   </div>
 </nav>

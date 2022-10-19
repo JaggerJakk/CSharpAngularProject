@@ -15,9 +15,20 @@ export class NavComponent implements OnInit {
 
   login() {
     this.authService.login(this.model).subscribe(
-      () => console.log('logged in successfully'),
-      () => console.log('fail to login'),
-      () => console.log('Observer got a complete notification')
+      (data) => console.log('Logged in successfully'),
+      (error) => console.error('Failed to login')
     );
   }
+
+  logout() {
+    this.authService.userToken =null;
+    localStorage.removeItem('token');
+    console.log('Logged Out');
+  }
+
+  loggedIn() {
+    const token = localStorage.getItem('token');
+    return !!token;
+  }
+  
 }
