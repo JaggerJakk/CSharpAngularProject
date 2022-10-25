@@ -18,9 +18,13 @@
     "@angular/platform-browser": "^14.2.6",
     "@angular/platform-browser-dynamic": "^14.2.6",
     "@angular/router": "^14.2.6",
+    "@auth0/angular-jwt": "^5.1.0",
     "@popperjs/core": "^2.11.5",
+    "alertifyjs": "^1.13.1",
     "bootstrap": "^5.2.2",
+    "bootswatch": "^5.2.2",
     "font-awesome": "^4.7.0",
+    "ngx-bootstrap": "^9.0.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
